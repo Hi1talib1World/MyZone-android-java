@@ -11,8 +11,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myzone.R;
+import com.example.myzone.scarping.ApiService;
 import com.example.myzone.scarping.WordsAdapter;
 
 import org.jsoup.helper.StringUtil;
@@ -25,9 +27,16 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.Retrofit;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
+
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
+    RecyclerView recyclerView;
+
     HashMap<String, Integer> occurrences = new HashMap<>();
     WordsAdapter wordsAdapter;
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -35,6 +44,20 @@ public class HomeFragment extends Fragment {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
+
+
+
+        OkHttpClient okHttpClient = new OkHttpClient().newBuilder().addInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+                .build();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .addConverterFactory(ScalarsConverterFactory.create())
+                .baseUrl("https://www.journaldev.com/")
+                .client(okHttpClient).build();
+
+
+        final ApiService apiService = retrofit.create(ApiService.class);
+
 
         return root;
     }

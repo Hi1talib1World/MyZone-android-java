@@ -1,6 +1,8 @@
 package com.example.myzone;
 
 import android.os.Bundle;
+import android.widget.Spinner;
+import android.widget.Toolbar;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -12,6 +14,8 @@ import androidx.navigation.ui.NavigationUI;
 
 public class Main2Activity extends AppCompatActivity {
 
+    Toolbar toolbar;
+    Spinner spinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,5 +1,11 @@
 package com.example.myzone;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 public class SplashScreen extends AppCompatActivity {
 
     @Override
@@ -13,7 +19,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                 // This method will be executed once the timer is over
-                Intent i = new Intent(SplashActivity.this, MainActivity.class);
+                Intent i = new Intent(SplashScreen.this, MainActivity.class);
                 startActivity(i);
                 finish();
             }

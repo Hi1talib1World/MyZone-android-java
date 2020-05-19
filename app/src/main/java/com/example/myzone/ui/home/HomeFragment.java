@@ -14,22 +14,40 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myzone.R;
 
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
-
+    HashMap<String, Integer> occurrences = new HashMap<>();
+    WordsAdapter wordsAdapter;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-        homeViewModel.getText().observe(this, new Observer<String>() {
+
+        return root;
+    }
+    public static HashMap<String, Integer> sortByValueDesc(Map<String, Integer> map) {
+        List<Map.Entry<String, Integer>> list = new LinkedList(map.entrySet());
+        Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
             @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
+            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+                return o2.getValue().compareTo(o1.getValue());
             }
         });
-        return root;
+
+        HashMap<String, Integer> result = new LinkedHashMap<>();
+        for (Map.Entry<String, Integer> entry : list) {
+            result.put(entry.getKey(), entry.getValue());
+        }
+        return result;
     }
 }

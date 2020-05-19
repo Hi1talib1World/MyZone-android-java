@@ -1,9 +1,11 @@
 package com.example.myzone;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -47,6 +49,21 @@ public class Main2Activity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if(id == R.id.search) {
+            Toast.makeText(getApplicationContext(), "Search", Toast.LENGTH_LONG).show();
+            return true;
+        } else if(id == R.id.setting) {
+            Toast.makeText(getApplicationContext(), "Settings", Toast.LENGTH_LONG).show();
+            return true;
+        } else if(id == R.id.about) {
+            Toast.makeText(getApplicationContext(), "About", Toast.LENGTH_LONG).show();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }

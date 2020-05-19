@@ -15,6 +15,8 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.myzone.R;
 import com.example.myzone.scarping.WordsAdapter;
 
+import org.jsoup.helper.StringUtil;
+
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -36,6 +38,30 @@ public class HomeFragment extends Fragment {
 
         return root;
     }
+    private void createHashMap(String responseString) {
+
+
+        responseString = responseString.replaceAll("[^a-zA-Z0-9]", " ");
+
+        String[] splitWords = responseString.split(" +");
+
+        for (String word : splitWords) {
+
+            if (StringUtil.isNumeric(word)) {
+                continue;
+            }
+
+            Integer oldCount = occurrences.get(word);
+            if (oldCount == null) {
+                oldCount = 0;
+            }
+            occurrences.put(word, oldCount + 1);
+        }
+
+        wordsAdapter = new WordsAdapter(this, occurrences);
+        recyclerView.setAdapter(wordsAdapter);
+    }
+
     public static HashMap<String, Integer> sortByValueDesc(Map<String, Integer> map) {
         List<Map.Entry<String, Integer>> list = new LinkedList(map.entrySet());
         Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {

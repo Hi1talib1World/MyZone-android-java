@@ -13,6 +13,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myzone.R;
+import com.example.myzone.scarping.WordsAdapter;
 
 import java.util.Collections;
 import java.util.Comparator;

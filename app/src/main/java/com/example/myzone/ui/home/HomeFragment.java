@@ -81,7 +81,7 @@ public class HomeFragment extends Fragment {
             occurrences.put(word, oldCount + 1);
         }
 
-        wordsAdapter = new WordsAdapter(this, occurrences);
+        wordsAdapter = new WordsAdapter(getActivity(), occurrences);
         recyclerView.setAdapter(wordsAdapter);
     }
 

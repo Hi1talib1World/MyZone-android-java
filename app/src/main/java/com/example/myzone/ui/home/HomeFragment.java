@@ -72,7 +72,9 @@ public class HomeFragment extends Fragment {
         ytr = new Yesterday();
         tmr = new Tomorrow();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),R.layout.custom_spinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),R.layout.custom_spinner,getResources().getStringArray(R.array.fragments));
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
 
 
         return root;

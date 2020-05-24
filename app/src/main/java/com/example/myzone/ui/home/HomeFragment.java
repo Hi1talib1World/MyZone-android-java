@@ -73,22 +73,28 @@ public class HomeFragment extends Fragment {
         ytr = new Yesterday();
         tmr = new Tomorrow();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),R.layout.custom_spinner,getResources().getStringArray(R.array.fragments));
+        final ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),R.layout.custom_spinner,getResources().getStringArray(R.array.fragments));
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
-        spinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, int i, long id) {
                 switch (i){
                     case 0:
                         break;
                     case 1:
                         break;
                 }
-            public void onNothingSelected(AdapterView<?>)
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
+
+
 
 
         return root;

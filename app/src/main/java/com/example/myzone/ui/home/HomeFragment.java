@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -75,6 +76,19 @@ public class HomeFragment extends Fragment {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),R.layout.custom_spinner,getResources().getStringArray(R.array.fragments));
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+
+        spinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+                switch (i){
+                    case 0:
+                        break;
+                    case 1:
+                        break;
+                }
+            public void onNothingSelected(AdapterView<?>)
+            }
+        });
 
 
         return root;

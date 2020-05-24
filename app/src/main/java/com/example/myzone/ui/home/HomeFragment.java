@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -14,7 +15,10 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myzone.DayAfterTomorrow;
 import com.example.myzone.R;
+import com.example.myzone.Tomorrow;
+import com.example.myzone.Yesterday;
 import com.example.myzone.scarping.ApiService;
 import com.example.myzone.scarping.WordsAdapter;
 
@@ -38,6 +42,11 @@ public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
     RecyclerView recyclerView;
     Spinner spinner;
+
+    Yesterday ytr;
+    Tomorrow tmr;
+    DayAfterTomorrow dayAfterTomorrow;
+
     HashMap<String, Integer> occurrences = new HashMap<>();
     WordsAdapter wordsAdapter;
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -58,6 +67,12 @@ public class HomeFragment extends Fragment {
 
 
         final ApiService apiService = retrofit.create(ApiService.class);
+        spinner = root.findViewById(R.id.spinner);
+
+        ytr = new Yesterday();
+        tmr = new Tomorrow();
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),R.layout.custom_spinner);
 
 
         return root;

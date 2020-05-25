@@ -83,9 +83,15 @@ public class HomeFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int i, long id) {
                 switch (i){
                     case 0:
+                        setFragment(ytr);
                         break;
                     case 1:
+                        setFragment(tmr);
                         break;
+                    case 2:
+                        setFragment(dayAfterTomorrow);
+                        break;
+
                 }
             }
 
@@ -141,6 +147,8 @@ public class HomeFragment extends Fragment {
     }
 
     public void setFragment (Fragment fragment){
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.main_frame , fragment);
+        fragmentTransaction.commit();
     }
 }

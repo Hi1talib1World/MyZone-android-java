@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.myzone.R;
+
 public class guidelist extends AppCompatActivity {
 
     @Override

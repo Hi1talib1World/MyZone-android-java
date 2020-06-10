@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Myaccount.myAccount"></activity>
+        <activity android:name=".selected_channels.guidelist"></activity>
+        <activity android:name=".splash_screen.splash_screen" />
+        <activity android:name=".Myaccount.myAccount" />
         <activity
             android:name=".Main2Activity"
             android:label="@string/title_activity_main2" />

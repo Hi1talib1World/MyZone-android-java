@@ -7,10 +7,13 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+import androidx.viewpager.widget.ViewPager;
 
 import android.view.View;
 
 import com.example.myzone.R;
+import com.google.android.material.tabs.TabLayout;
 
 public class tvshow extends AppCompatActivity {
 
@@ -21,13 +24,32 @@ public class tvshow extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+                switch (tab.getPosition()) {
+                    case 0:
+                        // TODO
+                        break;
+                }
             }
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) { }
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {}
         });
+    }
+    private void setupViewPager(ViewPager viewPager) {
+
+        ViewPagerAdapter adapter = new ViewPagerAdapter(
+                getSupportFragmentManager());
+        adapter.addFrag(new DummyFragment(
+                ContextCompat.getColor(this, R.color.cyan_50)), "Cyan");
+        adapter.addFrag(new DummyFragment(
+                ContextCompat.getColor(this, R.color.amber_50)), "Amber");
+        adapter.addFrag(new DummyFragment(
+                ContextCompat.getColor(this, R.color.purple_50)), "Purple");
+        viewPager.setAdapter(adapter);
     }
 }

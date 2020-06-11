@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.myzone">
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -10,7 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".selected_channels.guidelist"></activity>
+        <activity
+            android:name=".theshow.tvshow"
+            android:label="@string/title_activity_tvshow"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".selected_channels.guidelist" />
         <activity android:name=".Myaccount.myAccount" />
         <activity
             android:name=".Main2Activity"

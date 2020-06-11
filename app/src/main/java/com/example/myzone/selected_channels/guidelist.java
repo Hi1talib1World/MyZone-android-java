@@ -52,7 +52,7 @@ public class guidelist extends AppCompatActivity implements OnCustomerListChange
 
     @Override
     public void onNoteListChanged(List<channel> customers) {
-        
+
     }
 
     @Override

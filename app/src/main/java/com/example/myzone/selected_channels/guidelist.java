@@ -41,7 +41,8 @@ public class guidelist extends AppCompatActivity implements OnCustomerListChange
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mCustomers = SampleData.addSampleCustomers();
+        mCustomers = getSampleData();
+
 
         //setup the adapter with empty list
         mAdapter = new channelsListAdapter(mCustomers, this, this, this);

@@ -1,19 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:clipChildren="false">
 
-    <com.synnapps.carouselview.CarouselView
-        android:id="@+id/carouselView"
+    <Button
+        android:id="@+id/buttonSwipeLeft"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="@string/swipe_left"/>
+
+    <Button
+        android:id="@+id/buttonSwipeRight"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/swipe_right"/>
+
+    <link.fls.swipestack.SwipeStack
+        android:id="@+id/swipeStack"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:fillColor="#FFFFFFFF"
-        app:pageColor="#00000000"
-        app:radius="6dp"
-        app:slideInterval="3000"
-        app:strokeColor="#FF777777"
-        app:strokeWidth="1dp"/>
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:layout_above="@+id/buttonSwipeLeft"
+        android:padding="@dimen/padding_swipestack"
+        app:stack_rotation="10"
+        app:stack_size="3"/>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fabAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_margin="@dimen/margin_fab"
+            android:src="@drawable/ic_content_add"
+            app:fabSize="normal"/>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</RelativeLayout>

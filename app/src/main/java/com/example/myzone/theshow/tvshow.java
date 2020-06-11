@@ -45,7 +45,7 @@ public class tvshow extends AppCompatActivity {
         ViewPagerAdapter adapter = new ViewPagerAdapter(
                 getSupportFragmentManager());
         adapter.addFrag(new DummyFragment(
-                ContextCompat.getColor(this, R.color.cyan_50)), "Cyan");
+                ContextCompat.getColor(this, R.layout.fragment_informations_tab)), "Cyan");
         adapter.addFrag(new DummyFragment(
                 ContextCompat.getColor(this, R.color.amber_50)), "Amber");
         adapter.addFrag(new DummyFragment(

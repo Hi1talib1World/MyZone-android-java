@@ -47,8 +47,8 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
             @Override
             public void onGenerated(Palette palette) {
 
-                int vibrantColor = palette.getVibrantColor(R.color.primary_500);
-                int vibrantDarkColor = palette.getDarkVibrantColor(R.color.primary_700);
+                int vibrantColor = palette.getVibrantColor(R.color.colorPrimary);
+                int vibrantDarkColor = palette.getDarkVibrantColor(R.color.colorPrimary);
                 collapsingToolbarLayout.setContentScrimColor(vibrantColor);
                 collapsingToolbarLayout.setStatusBarScrimColor(vibrantDarkColor);
             }
@@ -58,10 +58,10 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         // if Bitmap fetch fails, fallback to primary colors
         Log.e(TAG, "onCreate: failed to create bitmap from background", e.fillInStackTrace());
         collapsingToolbarLayout.setContentScrimColor(
-                ContextCompat.getColor(this, R.color.primary_500)
+                ContextCompat.getColor(this, R.color.colorPrimary)
         );
         collapsingToolbarLayout.setStatusBarScrimColor(
-                ContextCompat.getColor(this, R.color.primary_700)
+                ContextCompat.getColor(this, R.color.colorPrimary)
         );
     }
 }

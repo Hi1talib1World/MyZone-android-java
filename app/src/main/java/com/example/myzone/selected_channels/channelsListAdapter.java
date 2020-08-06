@@ -57,7 +57,7 @@ public class channelsListAdapter extends
         holder.customerEmail.setText(selectedCustomer.getEmailAddress());
         Picasso.with(mContext)
                 .load(selectedCustomer.getImagePath())
-                .placeholder(R.drawable.profile_icon)
+                .placeholder(R.drawable.ic_launcher_background)
                 .into(holder.profileImage);
 
 

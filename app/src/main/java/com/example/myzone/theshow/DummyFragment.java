@@ -39,7 +39,7 @@ public class DummyFragment extends Fragment {
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
 
-        DessertAdapter adapter = new DessertAdapter(getContext());
+        showAdapter adapter = new showAdapter(getContext());
         recyclerView.setAdapter(adapter);
 
         return view;

@@ -18,6 +18,7 @@ import com.example.myzone.selected_channels.util.listener.OnCustomerListChangedL
 import com.example.myzone.selected_channels.util.listener.OnStartDragListener;
 import com.squareup.picasso.Picasso;
 
+import java.nio.channels.Channel;
 import java.util.Collections;
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class channelsListAdapter extends
     private OnStartDragListener mDragStartListener;
     private OnCustomerListChangedListener mListChangedListener;
 
-    public CustomerListAdapter(List<channel> customers, Context context,
+    public channelsListAdapter(List<channel> customers, Context context,
                                OnStartDragListener dragLlistener,
                                OnCustomerListChangedListener listChangedListener){
         mCustomers = customers;
@@ -51,12 +52,12 @@ public class channelsListAdapter extends
     @Override
     public void onBindViewHolder(final ItemViewHolder holder, int position) {
 
-        final Customer selectedCustomer = mCustomers.get(position);
+        final Channel selectedChannel = (Channel) mCustomers.get(position);
 
-        holder.customerName.setText(selectedCustomer.getName());
-        holder.customerEmail.setText(selectedCustomer.getEmailAddress());
+        holder.customerName.setText(selectedChannel.getName());
+        holder.customerEmail.setText(selectedChannel.getEmailAddress());
         Picasso.with(mContext)
-                .load(selectedCustomer.getImagePath())
+                .load(selectedChannel.getImagePath())
                 .placeholder(R.drawable.ic_launcher_background)
                 .into(holder.profileImage);
 

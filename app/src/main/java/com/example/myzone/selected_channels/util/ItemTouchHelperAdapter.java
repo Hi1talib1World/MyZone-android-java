@@ -1,6 +1,6 @@
 package com.example.myzone.selected_channels.util;
 
-public class ItemTouchHelperAdapter {
+public interface ItemTouchHelperAdapter {
     /**
      * Called when an item has been dragged far enough to trigger a move. This is called every time
      * an item is shifted, and not at the end of a "drop" event.

@@ -16,6 +16,7 @@ import com.example.myzone.R;
 import com.google.android.material.tabs.TabLayout;
 
 public class tvshow extends AppCompatActivity {
+    TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

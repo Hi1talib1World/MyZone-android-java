@@ -26,15 +26,15 @@ public class channelsListAdapter extends
         RecyclerView.Adapter<channelsListAdapter.ItemViewHolder>
         implements ItemTouchHelperAdapter {
 
-    private List<channel> mCustomers;
+    private List<channel> mchannel;
     private Context mContext;
     private OnStartDragListener mDragStartListener;
     private OnCustomerListChangedListener mListChangedListener;
 
-    public channelsListAdapter(List<channel> customers, Context context,
+    public channelsListAdapter(List<channel> channel, Context context,
                                OnStartDragListener dragLlistener,
                                OnCustomerListChangedListener listChangedListener){
-        mCustomers = customers;
+        mchannel = channel;
         mContext = context;
         mDragStartListener = dragLlistener;
         mListChangedListener = listChangedListener;
@@ -52,10 +52,10 @@ public class channelsListAdapter extends
     @Override
     public void onBindViewHolder(final ItemViewHolder holder, int position) {
 
-        final Channel selectedChannel = (Channel) mCustomers.get(position);
+        final Channel selectedChannel = (Channel) mchannel.get(position);
 
-        holder.customerName.setText(selectedChannel.getName());
-        holder.customerEmail.setText(selectedChannel.getEmailAddress());
+        holder.channelName.setText(selectedChannel.getName());
+        holder.channelEmail.setText(selectedChannel.getEmailAddress());
         Picasso.with(mContext)
                 .load(selectedChannel.getImagePath())
                 .placeholder(R.drawable.ic_launcher_background)
@@ -76,13 +76,13 @@ public class channelsListAdapter extends
 
     @Override
     public int getItemCount() {
-        return mCustomers.size();
+        return mchannel.size();
     }
 
     @Override
     public void onItemMove(int fromPosition, int toPosition) {
-        Collections.swap(mCustomers, fromPosition, toPosition);
-        mListChangedListener.onNoteListChanged(mCustomers);
+        Collections.swap(mchannel, fromPosition, toPosition);
+        mListChangedListener.onNoteListChanged(mchannel);
         notifyItemMoved(fromPosition, toPosition);
     }
 
@@ -93,14 +93,14 @@ public class channelsListAdapter extends
 
     public static class ItemViewHolder extends RecyclerView.ViewHolder implements
             ItemTouchHelperViewHolder {
-        public final TextView customerName, customerEmail;
+        public final TextView channelName, channelEmail;
         public final ImageView handleView, profileImage;
 
 
         public ItemViewHolder(View itemView) {
             super(itemView);
-            customerName = (TextView)itemView.findViewById(R.id.text_view_customer_name);
-            customerEmail = (TextView)itemView.findViewById(R.id.text_view_customer_email);
+            channelName = (TextView)itemView.findViewById(R.id.text_view_customer_name);
+            channelEmail = (TextView)itemView.findViewById(R.id.text_view_customer_email);
             handleView = (ImageView)itemView.findViewById(R.id.handle);
             profileImage = (ImageView)itemView.findViewById(R.id.image_view_customer_head_shot);
         }

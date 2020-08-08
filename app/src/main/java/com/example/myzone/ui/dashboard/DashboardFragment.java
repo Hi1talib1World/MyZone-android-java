@@ -80,10 +80,8 @@ public class DashboardFragment extends Fragment implements SwipeStack.SwipeStack
         }
     }
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
+    public void  onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.main, menu);
-        return true;
     }
 
     @Override
@@ -106,20 +104,18 @@ public class DashboardFragment extends Fragment implements SwipeStack.SwipeStack
     @Override
     public void onViewSwipedToRight(int position) {
         String swipedElement = mAdapter.getItem(position);
-        Toast.makeText(this, getString(R.string.view_swiped_right, swipedElement),
-                Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, getString(R.string.view_swiped_right, swipedElement),Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onViewSwipedToLeft(int position) {
         String swipedElement = mAdapter.getItem(position);
-        Toast.makeText(this, getString(R.string.view_swiped_left, swipedElement),
-                Toast.LENGTH_SHORT).show();
+        //  Toast.makeText(this, getString(R.string.view_swiped_left, swipedElement), Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onStackEmpty() {
-        Toast.makeText(this, R.string.stack_empty, Toast.LENGTH_SHORT).show();
+        //  Toast.makeText(this, R.string.stack_empty, Toast.LENGTH_SHORT).show();
     }
 
     public class SwipeStackAdapter extends BaseAdapter {

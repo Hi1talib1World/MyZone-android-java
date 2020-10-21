@@ -11,5 +11,5 @@
     <color name="Cyan">#00FFFF</color>
     <color name="primaryTextColor">#000</color>
     <color name="secondaryTextColor">#000</color>
-
+    <color name="primaryColor">#ff00dd</color>
 </resources>

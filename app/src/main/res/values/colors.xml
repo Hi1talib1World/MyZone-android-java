@@ -9,5 +9,7 @@
     <color name="purple_50">#800080</color>
     <color name="amber_50">#FFBF00</color>
     <color name="Cyan">#00FFFF</color>
+    <color name="primaryTextColor">#000</color>
+    <color name="secondaryTextColor">#000</color>
 
 </resources>

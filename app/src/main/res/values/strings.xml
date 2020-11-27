@@ -115,4 +115,8 @@
     <string name="stack_reset">Stack reset!</string>
     <string name="stack_empty">Card stack empty!</string>
     <string name="github">View on GitHub</string>
+    <string name="profile_track">profile track</string>
+    <string name="profile_name">profile name</string>
+    <string name="display_country">display country</string>
+    <string name="profile_country">profile country</string>
 </resources>

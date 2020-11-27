@@ -119,4 +119,9 @@
     <string name="profile_name">profile name</string>
     <string name="display_country">display country</string>
     <string name="profile_country">profile country</string>
+    <string name="profile_slack_username">profile slack username</string>
+    <string name="display_slack_username">display slack username</string>
+    <string name="display_email">display_email</string>
+    <string name="profile_email">profile email</string>
+    <string name="profile_number">profile number</string>
 </resources>
